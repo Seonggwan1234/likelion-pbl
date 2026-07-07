@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission 10 - 예외 처리 & FE 연동</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Mission 10 - 팀 / 멤버 관리</h1>
+    <p class="subtitle">@RestControllerAdvice 전역 예외 처리 + fetch() 기반 프론트엔드 연동</p>
+</header>
+
+<main>
+    <section class="panel">
+        <h2>팀</h2>
+
+        <form id="team-form" class="inline-form">
+            <input type="hidden" id="team-id">
+            <input type="text" id="team-name" placeholder="팀 이름" required>
+            <button type="submit" id="team-submit-btn">팀 생성</button>
+            <button type="button" id="team-cancel-btn" class="secondary hidden">취소</button>
+        </form>
+
+        <form id="team-search-form" class="inline-form">
+            <input type="text" id="team-search-input" placeholder="팀 이름 검색">
+            <button type="submit">검색</button>
+            <button type="button" id="team-search-reset">전체 보기</button>
+        </form>
+
+        <table>
+            <thead>
+            <tr><th>ID</th><th>이름</th><th>멤버 수</th><th></th></tr>
+            </thead>
+            <tbody id="team-table-body"></tbody>
+        </table>
+    </section>
+
+    <section class="panel">
+        <h2>멤버</h2>
+
+        <form id="member-form" class="inline-form">
+            <input type="hidden" id="member-id">
+            <input type="text" id="member-name" placeholder="이름" required>
+            <input type="number" id="member-age" placeholder="나이" min="1" required>
+            <input type="text" id="member-part" placeholder="파트" required>
+            <select id="member-team"><option value="">소속 팀 없음</option></select>
+            <button type="submit" id="member-submit-btn">멤버 생성</button>
+            <button type="button" id="member-cancel-btn" class="secondary hidden">취소</button>
+        </form>
+
+        <form id="member-search-form" class="inline-form">
+            <input type="text" id="member-search-input" placeholder="이름/파트 검색">
+            <button type="submit">검색</button>
+            <button type="button" id="member-search-reset">전체 보기</button>
+        </form>
+
+        <table>
+            <thead>
+            <tr><th>ID</th><th>이름</th><th>나이</th><th>파트</th><th>소속 팀</th><th></th></tr>
+            </thead>
+            <tbody id="member-table-body"></tbody>
+        </table>
+    </section>
+
+    <section class="panel">
+        <h2>실행 로그</h2>
+        <div id="log" class="log"></div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
